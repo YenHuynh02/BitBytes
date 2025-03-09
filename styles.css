@@ -1,0 +1,266 @@
+:root {
+    --textColor: #8f71ff;
+    --backgroundColor: orange;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: white;
+}
+
+/*  Header file */
+#header {
+    width: 100vw;
+    height: 100vh;
+    font-size: 20px;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100vw;
+    height: 10%;
+    background: rgba(227, 220, 220, 0.2);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.wrapper-nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.wrapper-nav h2,
+nav ul,
+.lang {
+    width: 250px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+    list-style: none;
+
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background: var(--textColor);
+    display: block;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+#f {
+    color: var(--textColor);
+}
+
+.lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 30px;
+    border: 1px solid var(--textColor);
+    border-radius: 20px;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90%;
+}
+
+.headerText h1 {
+    color: transparent;
+    background-image: radial-gradient(circle farthest-corner at center center, rgba(255, 94, 247, 1) 17.8%, var(--textColor) 100.2%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+}
+
+.headerText h2 {
+    font-style: italic;
+}
+
+#t1,
+#t2,
+#t3 {
+    display: inline-block;
+    animation: 2s scale infinite forwards;
+}
+
+#t2 {
+    animation-delay: 0.5s;
+}
+
+#t3 {
+    animation-delay: 1s;
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        color: var(--textColor);
+        transform: translateY(-10px);
+    }
+}
+
+.read-more {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+    z-index: 10px;
+}
+
+.read-more a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    background: white;
+    width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: var(--textColor) 0px 3px 12px;
+}
+
+.read-more a span {
+    position: relative;
+    display: block;
+    background: var(--textColor);
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+#caret-down {
+    position: absolute;
+    display: block;
+    background: white;
+    width: 7px;
+    height: 42px;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+    margin: auto;
+    transform: translateY(-5px);
+    animation: caret 1s forwards infinite
+}
+
+#caret-down::before,
+#caret-down::after {
+    content: '';
+    display: block;
+    background: white;
+    width: 25px;
+    height: 7px;
+    border-radius: 10px;
+}
+
+#caret-down::before {
+    transform: rotate(40deg) translate(9px, 35px);
+}
+
+#caret-down::after {
+    transform: rotate(-40deg) translate(-17px, 18px);
+}
+
+@keyframes caret {
+    0%,
+    100% {
+        transform: translateY(-2px)
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* About section */
+#about {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.wrapper-about {
+    display: flex;
+    width: 100vw;
+    height: 30vh;
+    justify-content: center;
+}
+
+.about-us {
+    display: flex;
+    align-items: center;
+}
+
+#profile {
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+#social-media a {
+    text-decoration: none;
+    color: black;
+}
+
+i {
+    margin-top: 50px;
+}
