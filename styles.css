@@ -16,20 +16,33 @@ img {
     -webkit-user-drag: none;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
+html, body {
     overflow-x: hidden;
-    background: white;
+    scroll-behavior: smooth;
 }
 
 /*  Header file */
 #header {
+    position: relative;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     font-size: 20px;
+}
+
+#header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
 nav {
@@ -93,6 +106,7 @@ nav ul li a:hover::after {
 
 #f {
     color: var(--textColor);
+    font-style: italic;
 }
 
 .lang {
@@ -113,11 +127,15 @@ nav ul li a:hover::after {
     height: 90%;
 }
 
-.headerText h1 {
+.text-content {
     color: transparent;
     background-image: radial-gradient(circle farthest-corner at center center, rgba(255, 94, 247, 1) 17.8%, var(--textColor) 100.2%);
     background-clip: text;
     -webkit-background-clip: text;
+    display: none;
+}
+
+.text-content.active {
     display: inline-block;
 }
 
@@ -219,6 +237,7 @@ nav ul li a:hover::after {
 }
 
 @keyframes caret {
+
     0%,
     100% {
         transform: translateY(-2px)
@@ -232,47 +251,50 @@ nav ul li a:hover::after {
 /* About section */
 #about {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    position: relative;
+    background-image: radial-gradient(circle, rgb(203 213 225) 2px, #fff 2px);
+    background-size: 2.5rem 2.5rem;
+    background-position: center center;
 }
 
 .wrapper-about {
     display: flex;
     width: 100vw;
-    flex-direction: column;
     height: 80vh;
     align-items: center;
     justify-content: center;
 }
 
-.wr, .wr1 {
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    padding: 0 50px 0px 50px;
-}
-
-.wr {
-    margin-bottom: 50px;
-}
-
 .about-us {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 50%;
+}
+
+.about-us div {
+    text-align: center;
 }
 
 .about-us div p {
     font-size: 15px;
     font-style: italic;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
 #profile {
     margin-right: 20px;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-right: 2px solid var(--textColor);
+    border-radius: 30px;
+    object-fit: cover;
 }
 
 #social-media a {
@@ -282,4 +304,36 @@ nav ul li a:hover::after {
 
 i {
     margin-top: 50px;
+}
+
+/* Contact section */
+#contact {
+    display: flex;
+    background-image: url(images/contact.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.leftSide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+}
+
+.rightSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+}
+
+form {
+    background: white;
+    width: 80%;
+    height: 60%;
+    border-radius: 50px;
 }
